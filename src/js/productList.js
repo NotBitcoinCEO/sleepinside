@@ -28,8 +28,10 @@ export default class ProductList {
     this.listElement.innerHTML = '';
     //get the template
     const template = document.getElementById('product-card-template');
-    renderListWithTemplate(template, this.listElement, list, this.prepareTemplate);
-    
+    list.forEach(product => {
+      const clone = template.content.cloneNode(true);
+      // insert the actual details of the current product into the template
+      this.listElement.appendChild(clone);
   }
   // original method before moving the template logic to utils.js
   // renderList(list) {
